@@ -1,0 +1,55 @@
+#include <iostream>
+
+using namespace std;
+
+template<typename T>
+class SimpleVector 
+{
+
+private:
+
+	T* data;
+	int currentSize;
+	int currentCapacity;
+
+public:
+
+	SimpleVector() : currentCapacity(data), currentSize(10)
+	{
+		data = new T[currentCapacity];
+	}
+
+	~SimpleVector() 
+	{
+		delete[] data;
+	}
+
+	void push_back(T value)
+	{
+		if (currentSize < currentCapacity)
+		{
+			data[currentCapacity] = value;
+			size++;
+		}
+
+	}
+	
+	void pop_back()
+		{
+			if (currentSize > 0)
+			{
+				size--;
+			}
+		}
+
+	int size()
+	{
+		return currentSize;
+	}
+
+	int capacity()
+	{
+		return currentCapacity;
+	}
+
+};
